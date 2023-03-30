@@ -13,6 +13,7 @@ jobs:
     uses: markpetronack/toy-website-workflow/.github/workflows/reusableworkflow.yaml@main
     with:
       environment: dev
+    secrets: inherit
     needs: build
   
   deployprod:
