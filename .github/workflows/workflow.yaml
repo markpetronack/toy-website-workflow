@@ -13,18 +13,18 @@ jobs:
     runs-on: ubuntu-latest
     needs: build
     environment:
-      name: 'dev'
+      name: dev
     steps:
       - name: 'dev deploy'
-        run: |
-          echo 'My Environment: ${{ vars.MYENV }}'
-          echo 'My Secret: ${{ secrets.MYSECRET }}'
+        uses: ./.github/workflows/reusableworkflow.yaml
+        with:
+          environment: dev
 
   deployprod:
     runs-on: ubuntu-latest
     needs: deploydev
     environment:
-      name: 'prod'
+      name: prod
     steps:
       - name: 'prod deploy'
         run: |

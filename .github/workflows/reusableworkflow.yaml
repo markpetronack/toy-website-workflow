@@ -1,0 +1,20 @@
+name: Reusable workflow
+
+on:
+  workflow_call:
+    inputs:
+      environment:
+        required: true
+        type: string
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    environment:
+      name: ${{ inputs.environment }}
+    steps:
+      - name: 'prod deploy'
+        run: |
+          echo 'My Environment: ${{ vars.MYENV }}'
+          echo 'My Secret: ${{ secrets.MYSECRET }}'
+    
