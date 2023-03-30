@@ -16,6 +16,6 @@ jobs:
       name: 'dev'
     steps:
       - name: 'dev deploy'
-        run: echo '${{ env.myenv }}'
+        run: echo '${{ vars.myenv }}'
 
   
