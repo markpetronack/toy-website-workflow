@@ -9,7 +9,7 @@ jobs:
       - name: 'build step'
         run: echo "The Build Step"
 
-  deploy:
+  deploydev:
     runs-on: ubuntu-latest
     needs: build
     environment:
@@ -18,4 +18,13 @@ jobs:
       - name: 'dev deploy'
         run: echo '${{ vars.myenv }}'
 
-  
+  deployprod:
+    runs-on: ubuntu-latest
+    needs: deploydev
+    environment:
+      name: 'prod'
+    steps:
+      - name: 'prod deploy'
+        run: echo '${{ vars.myenv }}'
+
+      
