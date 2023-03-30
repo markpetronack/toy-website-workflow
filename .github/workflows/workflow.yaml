@@ -10,16 +10,11 @@ jobs:
         run: echo "The Build Step"
 
   deploydev:
-    runs-on: ubuntu-latest
+    uses: markpetronack/toy-website-workflow/.github/workflows/reusableworkflow.yaml@main
+    with:
+      environment: dev
     needs: build
-    environment:
-      name: dev
-    steps:
-      - name: 'dev deploy'
-        uses: ./.github/workflows/reusableworkflow.yaml
-        with:
-          environment: dev
-
+  
   deployprod:
     runs-on: ubuntu-latest
     needs: deploydev
