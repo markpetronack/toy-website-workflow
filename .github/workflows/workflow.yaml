@@ -16,7 +16,9 @@ jobs:
       name: 'dev'
     steps:
       - name: 'dev deploy'
-        run: echo '${{ vars.myenv }}'
+        run: |
+          echo 'My Environment: ${{ vars.MYENV }}'
+          echo 'My Secret: ${{ secrets.MYSECRET }}'
 
   deployprod:
     runs-on: ubuntu-latest
@@ -25,6 +27,8 @@ jobs:
       name: 'prod'
     steps:
       - name: 'prod deploy'
-        run: echo '${{ vars.myenv }}'
+        run: |
+          echo 'My Environment: ${{ vars.MYENV }}'
+          echo 'My Secret: ${{ secrets.MYSECRET }}'
 
       
